@@ -1,4 +1,2 @@
-from collections import deque
-
-a = deque([[1, 2]])
-print(a.popleft())
+a = [[1, 2], [1, 1]]
+print([1, 1] in a)

@@ -1,4 +1,4 @@
-# 이코테 149쪽 - (https://velog.io/@gabang2/DFSBFS)
+# 이코테 149쪽 - (https://velog.io/@gabang2/%EC%9D%8C%EB%A3%8C%EC%88%98-%EC%96%BC%EB%A0%A4%EB%A8%B9%EA%B8%B0)
 
 from collections import deque
 
