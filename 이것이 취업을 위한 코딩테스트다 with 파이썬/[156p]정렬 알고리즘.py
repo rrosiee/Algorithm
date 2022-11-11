@@ -55,9 +55,20 @@ def quick_sort_ver2(array):
     return quick_sort_ver2(left_side) + [pivot] + quick_sort_ver2(right_side)
 
 
-array = [5, 7, 9, 0, 3, 1, 6, 2, 4, 8]
-print(quick_sort(array, 0, len(array)-1))
-print(quick_sort_ver2(array))
-insertion_sort(array)
+def count_sort(array):
+    count = [0] * (max(array) + 1)
+    for i in range(len(array)):
+        count[array[i]] += 1
+    for i in range(len(count)):
+        for j in range(count[i]):
+            print(i, end=' ')
+    print()
+
+
+array = [5, 7, 0, 0, 3, 1, 6, 2, 4, 8]
+print(quick_sort(array, 0, len(array)-1)) # 퀵 정렬
+print(quick_sort_ver2(array)) # 퀵 정렬 간단 구현
+count_sort(array)
+insertion_sort(array) # 삽입 정렬
 selection_sort(array) # 선택 정렬
 print(sorted(array)) # 파이썬 내장 정렬 함수
