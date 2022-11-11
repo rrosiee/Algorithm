@@ -1,2 +1,2 @@
-a = [[1, 2], [1, 1]]
-print(a.pop())
+for i in range(10, 1,-1):
+    print(i)
