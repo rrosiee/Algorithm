@@ -1,4 +1,4 @@
-# 이코테 178p - ()
+# 이코테 178p
 
 N = int(input())
 list_ = list()
