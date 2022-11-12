@@ -1,12 +1,15 @@
 # 이코테 182쪽
 
 N, K = map(int, input().split())
-A = sorted(list(map(int, input().split())))
-B = sorted(list(map(int, input().split())))
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+
+A.sort()
+B.sort(reverse=True)
 
 for i in range(0, K):
-    if A[i] < B[-i-1]:
-        A[i], B[-i-1] = B[-i-1], A[i]
+    if A[i] < B[i]:
+        A[i], B[i] = B[i], A[i]
     else:
         break
 
