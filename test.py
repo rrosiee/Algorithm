@@ -1,2 +1,2 @@
-for i in range(10, 1,-1):
-    print(i)
+a = [1, 2, 3, 4, 5]
+print(a[-1])
