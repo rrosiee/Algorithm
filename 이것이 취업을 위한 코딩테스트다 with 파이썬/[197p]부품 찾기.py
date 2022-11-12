@@ -1,4 +1,4 @@
-'''# 이코테 197쪽
+# 이코테 197쪽
 
 ## 이진탐색을 활용한 풀이 ##
 def yes_or_no(array, target, start=0, end=None):
@@ -42,7 +42,7 @@ for i in B:
     if array[i] != 0:
         print('yes', end=' ')
     else:
-        print('no', end=' ')'''
+        print('no', end=' ')
 
 
 ## 집합 자료형 이용 ##
