@@ -1,2 +1,3 @@
-a = [1, 2, 3, 4, 5]
-print(a[-1])
+dynamic = dict()
+dynamic['hello'] = 0
+print('hello' in dynamic)
