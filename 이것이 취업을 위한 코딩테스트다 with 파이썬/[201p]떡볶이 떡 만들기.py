@@ -4,14 +4,14 @@ def tteokbokki(array, target):
     end = max(array)
     while start <= end:
         mid = (start + end) // 2
-        mid_value = sum([i - mid for i in array if i >= mid])
-        if mid_value == target:
-            return mid
-        elif mid_value > target:
-            start += 1
-        elif mid_value < target:
-            end -= 1
-    return None
+        total = sum([i - mid for i in array if i >= mid])
+        if total < target:
+            end = mid - 1
+        else:
+            result = mid
+            start = mid + 1
+
+    return result
 
 N, M = map(int, input().split())
 array = list(map(int, input().split()))
