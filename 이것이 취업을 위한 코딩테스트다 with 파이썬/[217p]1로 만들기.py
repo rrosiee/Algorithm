@@ -1,18 +1,14 @@
 # 이코테 217쪽
 
-dynamic = dict()
+x = int(input())
 
-def make_one(number):
-    if number % 5 == 0:
-        a_5 = number // 5
-        make_one(number // 5)
-    if number % 3 == 0:
-        a_3 = number//3
-        make_one(number // 3)
-    if number % 2 == 0:
-        a_2 = number//2
-        make_one(number // 2)
-    make_one(number - 1)
-    return number, a_5, a_3, a_2
-
-print(make_one(26))
+d = [0] * 30001
+for i in range(2, x+1):
+    d[i] = d[i-1] + 1
+    if i % 2 == 0:
+        d[i] = min(d[i], d[i // 2] + 1)
+    if i % 3 == 0:
+        d[i] = min(d[i], d[i // 3] + 1)
+    if i % 5 == 0:
+        d[i] = min(d[i], d[i // 5] +1)
+print(d[x])
