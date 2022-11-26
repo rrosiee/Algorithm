@@ -17,22 +17,28 @@ def get_smallest_node():
     min_value = INF
     for i in range(1, n+1):
         if distance[i] < min_value and not visited[i]:
-            min_value = distance[i]
             index = i
+            min_value = distance[i]
     return index
 
 def dijkstra(start):
+    # start Node 방문 처리 후 연결된 distance 정보 기록하기
     visited[start] = True
     distance[start] = 0
-    for j in graph[start]:
-        distance[j[0]] = j[1]
-    for i in range(n-1):
+    for i in graph[start]:
+        distance[i[0]] = i[1]
+
+    for _ in range(n-1):
         now = get_smallest_node()
         visited[now] = True
-        for j in graph[now]:
-            cost = distance[now] + j[1]
-            if cost < distance[j[0]]:
-                distance[j[0]] = cost
+
+        for i in graph[now]:
+            cost = distance[now] + i[1]
+            if distance[i[0]] > cost:
+                distance[i[0]] = cost
 
 dijkstra(start)
 print(distance)
+
+
+# 지금 궁금한 점 : 제일 적은 노드를 그때그때 방문 처리 하면 그 노드는 후에 더 작은 노드로 교체될 가능성은 없는지?
