@@ -2,8 +2,8 @@
 
 def find_parent(parent, x):
     if parent[x] != x:
-        return find_parent(parent, parent[x])
-    return x
+        parent[x] = find_parent(parent, parent[x])
+    return parent[x]
 
 def union_parent(parent, a, b):
     a = find_parent(parent, a)
@@ -29,8 +29,9 @@ for i in range(1, v+1):
 for _ in range(e):
     a, b = map(int, input().split())
     union_parent(parent, a, b)
+    print("패런트 출력: ", parent)
 
-# 출력 - 집합 출력하기
+# 출력 - 집합 출력하기(루트노드가 같다면 같은 집합임)
 print("집합 : ", end='')
 for i in range(1, v+1):
     print(find_parent(parent, i), end=' ')
