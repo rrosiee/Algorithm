@@ -1,4 +1,11 @@
 # 이코테 300p
+'''
+N : 집 수
+M : 길 수
+A, B, C : 집 A, 집 B, A와 B간의 유지 비용
+크루스칼 알고리즘을 이용하여 최소 신장 트리를 만들고,
+해당 신장 트리에서 가장 큰 유지비용이 드는 cost를 뺀다.
+'''
 
 def find_parent(parent, x):
     if parent[x] != x:
@@ -32,9 +39,8 @@ for C, A, B in graph:
     print(C, A, B)
     if find_parent(parent, A) == find_parent(parent, B):
         continue
-    if max_line < C:
-        max_line = C
     union_parent(parent, A, B)
+    max_line = C
     total += C
 
 print(total - max_line)
