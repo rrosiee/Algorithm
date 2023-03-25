@@ -24,6 +24,7 @@ cycle = False
 
 for i in range(e):
     a, b = map(int, input().split())
+    # 서로소 집합 자료 구조에서 아래 5줄 코드만 변경됨!
     if find_parent(parent, a) == find_parent(parent, b):
         cycle = True
         break
