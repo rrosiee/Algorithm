@@ -16,6 +16,7 @@ def union_parent(parent, a, b):
 v, e = map(int, input().split())
 parent = [0] * (v+1)
 edges = []
+total = 0
 
 for i in range(0, v+1):
     parent[i] = i
@@ -24,8 +25,7 @@ for _ in range(e):
     a, b, cost = map(int, input().split())
     edges.append((cost, a, b))
 
-edges.sort(reverse=False)
-total = 0
+edges.sort(reverse=False) # O(ElogE)
 
 for edge in edges:
     if find_parent(parent, edge[1]) == find_parent(parent, edge[2]):
