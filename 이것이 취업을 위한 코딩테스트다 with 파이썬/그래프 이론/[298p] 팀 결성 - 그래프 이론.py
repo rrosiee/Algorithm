@@ -27,13 +27,13 @@ def union_parent(parent, a, b):
 def team(stat, a, b):
     if stat == 0:
         union_parent(parent, a, b)
-    elif stat == 1:
+    elif stat == 1 :
         if find_parent(parent, a) == find_parent(parent, b):
             result.append("YES")
         else:
             result.append("NO")
 
-N, M = map(int, input().split())
+N, M = map(int,  input().split())
 parent = [0] * (N+1)
 result = []
 
