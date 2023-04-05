@@ -13,8 +13,10 @@ array.sort()
 INF = 100001
 result = 0
 
+# array를 한 번씩 돌리기
 for i in range(N):
-
+    # 현재 값보다 작거나 같은 값들(temp)의 개수가 현재 값보다 많다면,
+    # 현재 값을 기준으로 집합으로 묶어주자.
     temp = [k for k in array if k <= array[i]]
     if array[i] <= len(temp):
         for k in temp[0:array[i]]:
