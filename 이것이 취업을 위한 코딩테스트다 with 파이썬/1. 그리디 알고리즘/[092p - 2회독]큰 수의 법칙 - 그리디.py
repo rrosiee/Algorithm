@@ -9,20 +9,29 @@ M : 숫자가 더해지는 횟수
 K : 각 인덱스당 더해질 수 있는 횟수 
 '''
 
+# 초기 값 셋팅
 N, M, K = map(int, input().split())
-numbers = map(int, input().split())
-numbers - list(numbers)
-numbers = numbers.sort(reverse = True)
-total = 0
+array = list(map(int, input().split()))
+result = 0
+cnt = 0
 
-print(numbers)
-for i in numbers:
-    if M >= K:
-        total += i * K
-        M -= K
-    elif M < K:
-        total += i * M
-        M -= M
+# 첫 번째로 큰 값, 두 번째로 큰 값
+array.sort(reverse=True)
+first = array[0]
+second = array[1]
+
+# 첫 번째로 큰 값 * K + 두 번째로 큰 값 * 1 을 M번 반복
+while True:
+    if M == 0:
         break
+    if cnt < K:
+        result += first
+        print(first)
+        cnt += 1
+        M -= 1
+    else:
+        result += second
+        M -= 1
+        cnt = 0
 
-print(total)
+print(result)
