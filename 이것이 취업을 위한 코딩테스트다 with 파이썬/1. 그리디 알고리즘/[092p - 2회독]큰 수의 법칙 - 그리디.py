@@ -16,9 +16,9 @@ result = 0
 cnt = 0
 
 # 첫 번째로 큰 값, 두 번째로 큰 값
-array.sort(reverse=True)
-first = array[0]
-second = array[1]
+array.sort()
+first = array[N-1]
+second = array[N-2]
 
 # 첫 번째로 큰 값 * K + 두 번째로 큰 값 * 1 을 M번 반복
 while True:
@@ -26,12 +26,10 @@ while True:
         break
     if cnt < K:
         result += first
-        print(first)
         cnt += 1
-        M -= 1
     else:
         result += second
-        M -= 1
         cnt = 0
+    M -= 1
 
 print(result)
