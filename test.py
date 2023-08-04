@@ -1,3 +1,1 @@
-a = [1, 0]
-b = [0, -1]
-print(a+b)
+print("3" in str(30))
