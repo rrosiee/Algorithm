@@ -1,1 +1,1 @@
-print("3" in str(30))
+print(ord("a"))
