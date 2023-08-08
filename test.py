@@ -1,2 +1,2 @@
-arr = [[1, 2], [3, 4]]
-print([1, 2] in arr)
+map(int, "1234".split())
+print(list(map(int, "1234".split())))
