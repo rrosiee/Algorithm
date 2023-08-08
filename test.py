@@ -1,2 +1,1 @@
-map(int, "1234".split())
-print(list(map(int, "1234".split())))
+print(ord("A"), ord("9"),ord("0"), ord("Z"))
