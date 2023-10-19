@@ -1,4 +1,4 @@
-for i in range(5):
-    if i == 3:
-        continue
-    print(i)
+a = list()
+happy = [3, 4, 5]
+a.append(happy[0:2])
+print(a)
