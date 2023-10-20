@@ -1,7 +1,15 @@
+# 프로그래머스 60061 (https://school.programmers.co.kr/learn/courses/30/lessons/60061)
+
 import copy
 
 
 # todo : 시간 초과 에러가 뜸
+
+# 개선할 점
+# 1. for문 돌릴 때 인덱스 말고 명시적으로 할 것
+# 2. list 대신 set를 이용하기
+# 3. 모든 경우의 수를 고려해서 "수학적 연산"을 해보기
+
 
 def do_or_not(frame_one, frame_current):
     # == frame_temp에 수행했을 때의 값을 저장 == #

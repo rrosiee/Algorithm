@@ -1,4 +1,4 @@
-a = list()
-happy = [3, 4, 5]
-a.append(happy[0:2])
+a = {(1, 1, 1), (2, 2, 3)}
+a = list(map(list, a))
+a.sort()
 print(a)
