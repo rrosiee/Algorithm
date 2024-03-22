@@ -7,9 +7,8 @@ animals = []
 cnt = 0
 
 for _ in range(N):
-    h = list(map(int, stdin.readline().split()))
     animals.append(
-        h
+        list(map(int, stdin.readline().split()))
     )
 
 
