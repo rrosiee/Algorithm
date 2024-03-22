@@ -7,9 +7,7 @@ animals = []
 cnt = 0
 
 for _ in range(N):
-    animals.append(
-        list(map(int, stdin.readline().split()))
-    )
+    animals.append(list(map(int, stdin.readline().split())))
 
 
 def diff(s, x, y):
