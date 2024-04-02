@@ -1,25 +1,23 @@
-# 문제
-# A[1], A[2], ..., A[n]
-# 차이가 m 이상이면서 제일 작은 경우 -> 다이나믹 프로그래밍
+import sys
+input = sys.stdin.readline
 
-# Variables
-n, m = map(int, input().split())
-array = [int(input()) for _ in range(n)]
+def solution(array, N, M):
+    left, right = 0, 0
+    answer = 2000000001
 
+    while right < N:
+        diff = array[right] - array[left]
+        if diff < M:
+            right += 1
+        elif diff > M:
+            answer = min(answer, diff)
+            left += 1
+        else:
+            return diff
+    return answer
 
-# main Section
-def get_min_num(n, m, array):
-    min_num = 1000000001
-    for i in range(0, n):
-        for k in range(i, n):
-            diff = abs(array[i] - array[k])
-            if diff >= m:
-                if min_num > diff:
-                    min_num = diff
-                    if min_num == m:
-                        return min_num
-    return min_num
+N, M = map(int, input().split())
+array = [int(input().rstrip()) for _ in range(N)]
+array.sort()
 
-# Result
-result = get_min_num(n, m, array)
-print(result)
+print(solution(array, N, M))
