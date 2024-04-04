@@ -1,46 +1,41 @@
-# 승과 패의 수가 같아야 한다.
-# 모든 합은 30이 되어야 한다.
-# 무의 합은 짝수여야 한다.
+# 참고한 풀이 : https://velog.io/@toezilla/BOJ-6987-%EC%9B%94%EB%93%9C%EC%BB%B5-Python
+from itertools import combinations
+import sys
+input = sys.stdin.readline
 
-def is_available(array):
-    first, mid,mid_count,  last = 0, 0, 0, 0
+# 백트래킹
+def dfs(depth):
+    global  cnt
 
-    country_sum = 0
-    for i in range(len(array)):
-        country_sum += array[i]
+    if depth == 15:
+        cnt = 1
+        for sub in res:
+            if sub.count(0) != 3:
+                cnt = 0
+                break
+        return
 
-        if i % 3 == 0:
-            first += array[i]
-        elif i % 3 == 1:
-            if array[i] != 0:
-                mid_count += 1
-            mid += array[i]
-        elif i % 3 == 2:
-            # Case 5 : 각 나라의 합은 5를 넘을 수 없다.
-            if country_sum != 5:
-                return 0
-            country_sum = 0
-            last += array[i]
+    country1, country2 = games[depth]
+    for x, y in ((0, 2), (1, 1), (2, 0)):
+        # 경기 진행
+        res[country1][x] -= 1
+        res[country2][y] -= 1
 
-    # Case 1 : 전체 합이 30이어야 한다.
-    sum_30 = first + mid + last == 30
+        # (country1, x) & (country2, y)에 대한 모든 경우의 수에 대해 완료
+        dfs(depth + 1)
 
-    # Case 2 : 승과 패의 수가 동일해야 한다.
-    equal_first_last = first == last
+        # 완료 했으면 다시 되돌리기
+        res[country1][x] += 1
+        res[country2][y] += 1
 
-    # Case 3 : 나 혼자 무승부만 할 수는 없다.
-    mid_available = mid % 2 == 0 and mid_count != 1
 
-    # Case 4 : 각 나라의 합은 5가 되어야 한다.
-
-    if sum_30 and equal_first_last and mid_available:
-        return 1
-    return 0
-
-result = []
+answers = []
+games = list(combinations(range(6), 2))
 for _ in range(4):
     array = list(map(int, input().split()))
-    result.append(is_available(array))
+    res = [array[i:i+3] for i in range(0, 18, 3)]
+    cnt = 0
+    dfs(0)
+    answers.append(cnt)
 
-for r in result:
-    print(r, end=' ')
+print(*answers)
