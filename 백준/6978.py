@@ -1,7 +1,5 @@
 # 참고한 풀이 : https://velog.io/@toezilla/BOJ-6987-%EC%9B%94%EB%93%9C%EC%BB%B5-Python
 from itertools import combinations
-import sys
-input = sys.stdin.readline
 
 # 백트래킹
 def dfs(depth):
@@ -17,16 +15,17 @@ def dfs(depth):
 
     country1, country2 = games[depth]
     for x, y in ((0, 2), (1, 1), (2, 0)):
-        # 경기 진행
-        res[country1][x] -= 1
-        res[country2][y] -= 1
+        if res[country1][x] > 0 and res[country2][y] > 0:
+            # 경기 진행
+            res[country1][x] -= 1
+            res[country2][y] -= 1
 
-        # (country1, x) & (country2, y)에 대한 모든 경우의 수에 대해 완료
-        dfs(depth + 1)
+            # (country1, x) & (country2, y)에 대한 모든 경우의 수에 대해 완료
+            dfs(depth + 1)
 
-        # 완료 했으면 다시 되돌리기
-        res[country1][x] += 1
-        res[country2][y] += 1
+            # 완료 했으면 다시 되돌리기
+            res[country1][x] += 1
+            res[country2][y] += 1
 
 
 answers = []
@@ -37,5 +36,4 @@ for _ in range(4):
     cnt = 0
     dfs(0)
     answers.append(cnt)
-
 print(*answers)
